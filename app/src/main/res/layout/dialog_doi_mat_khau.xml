@@ -11,7 +11,7 @@
         android:text="ĐỔI MẬT KHẨU"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#F44336"
+        android:textColor="#2196F3"
         android:gravity="center"
         android:layout_marginBottom="20dp" />
 
