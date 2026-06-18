@@ -5,6 +5,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     
@@ -289,19 +295,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     
     private void insertSampleLeaveRequests(SQLiteDatabase db) {
-        java.time.LocalDate today = java.time.LocalDate.now();
-        
+        java.time.LocalDate today = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            today = LocalDate.now();
+        }
+
         // Một số đơn nghỉ phép trong tháng hiện tại và tháng trước
-        String[][] leaveRequests = {
-            {"NV004", today.minusDays(15).toString(), today.minusDays(15).toString(), "1", "Khám bệnh định kỳ", "Đã duyệt", "NV002"},
-            {"NV005", today.minusDays(10).toString(), today.minusDays(8).toString(), "3", "Về quê thăm gia đình", "Đã duyệt", "NV003"},
-            {"NV006", today.minusDays(5).toString(), today.minusDays(5).toString(), "1", "Bị cảm cúm", "Đã duyệt", "NV002"},
-            {"NV008", today.minusDays(3).toString(), today.minusDays(2).toString(), "2", "Công việc cá nhân", "Chờ duyệt", null},
-            {"NV010", today.plusDays(5).toString(), today.plusDays(7).toString(), "3", "Nghỉ lễ gia đình", "Chờ duyệt", null},
-            {"NV011", today.minusDays(20).toString(), today.minusDays(20).toString(), "1", "Đi học", "Từ chối", "NV003"},
-            {"NV007", today.minusDays(12).toString(), today.minusDays(11).toString(), "2", "Nghỉ phép năm", "Đã duyệt", "NV002"}
-        };
-        
+        String[][] leaveRequests = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            leaveRequests = new String[][]{
+                {"NV004", today.minusDays(15).toString(), today.minusDays(15).toString(), "1", "Khám bệnh định kỳ", "Đã duyệt", "NV002"},
+                {"NV005", today.minusDays(10).toString(), today.minusDays(8).toString(), "3", "Về quê thăm gia đình", "Đã duyệt", "NV003"},
+                {"NV006", today.minusDays(5).toString(), today.minusDays(5).toString(), "1", "Bị cảm cúm", "Đã duyệt", "NV002"},
+                {"NV008", today.minusDays(3).toString(), today.minusDays(2).toString(), "2", "Công việc cá nhân", "Chờ duyệt", null},
+                {"NV010", today.plusDays(5).toString(), today.plusDays(7).toString(), "3", "Nghỉ lễ gia đình", "Chờ duyệt", null},
+                {"NV011", today.minusDays(20).toString(), today.minusDays(20).toString(), "1", "Đi học", "Từ chối", "NV003"},
+                {"NV007", today.minusDays(12).toString(), today.minusDays(11).toString(), "2", "Nghỉ phép năm", "Đã duyệt", "NV002"}
+            };
+        }
+
         for (String[] leave : leaveRequests) {
             ContentValues np = new ContentValues();
             np.put("MaNhanVien", leave[0]);
@@ -335,10 +347,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             int varIndex = 0;
             for (int day = 1; day <= daysInMonth; day++) {
-                java.time.LocalDate date = java.time.LocalDate.of(2026, month, day);
+                LocalDate date = null;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    date = LocalDate.of(2026, month, day);
+                }
                 // Nghỉ T7, CN để có khoảng 20-22 ngày công 1 tháng
-                if (date.getDayOfWeek() == java.time.DayOfWeek.SUNDAY || date.getDayOfWeek() == java.time.DayOfWeek.SATURDAY) {
-                    continue;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    if (date.getDayOfWeek() == DayOfWeek.SUNDAY || date.getDayOfWeek() == DayOfWeek.SATURDAY) {
+                        continue;
+                    }
                 }
 
                 String dateStr = String.format(java.util.Locale.US, "%04d-%02d-%02d", 2026, month, day);
@@ -432,7 +449,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put("GioiTinh", gioiTinh);
         cv.put("SoDienThoai", sdt);
         cv.put("Email", email);
-        cv.put("NgayVaoLam", java.time.LocalDate.now().toString());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            cv.put("NgayVaoLam", LocalDate.now().toString());
+        }
         cv.put("MaPhongBan", maPB);
         cv.put("MaChucVu", maCV);
         cv.put("HinhAnh", hinhAnh);
@@ -1094,6 +1113,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // Methods cho quản lý lương
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public int calculateMonthlySalary(String thangNam) {
         SQLiteDatabase db = this.getWritableDatabase();
         int count = 0;
