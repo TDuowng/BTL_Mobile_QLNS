@@ -26,14 +26,14 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_menu_revert"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@color/white" />
+                app:tint="#F44336" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="QUẢN LÝ HỢP ĐỒNG"
-                android:textColor="@color/white"
+                android:textColor="#F44336"
                 android:textSize="22sp"
                 android:textStyle="bold"
                 android:gravity="center" />
@@ -44,7 +44,7 @@
                 android:layout_height="40dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:src="@android:drawable/ic_input_add"
-                app:tint="@color/white" />
+                app:tint="#F44336" />
         </LinearLayout>
 
         <EditText
