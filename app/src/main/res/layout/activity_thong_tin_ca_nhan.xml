@@ -21,7 +21,7 @@
             android:layout_height="40dp"
             android:src="@android:drawable/ic_menu_revert"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:tint="#F44336" />
+            app:tint="#F44336" />
 
         <TextView
             android:id="@+id/tv_title"
@@ -252,7 +252,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="CẬP NHẬT THÔNG TIN"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:background="@drawable/btn_primary"
             android:layout_marginBottom="12dp" />
@@ -262,7 +262,7 @@
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="ĐỔI MẬT KHẨU"
-            android:textColor="#2196F3"
+            android:textColor="#000000"
             android:textStyle="bold"
             android:background="@drawable/btn_secondary"
             android:layout_marginBottom="12dp" />

@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:background="@drawable/gradient_header"
+            android:background="@drawable/header_gradient"
             android:padding="24dp">
 
             <ImageButton
@@ -24,7 +24,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_menu_revert"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                app:tint="@android:color/white" />
+                app:tint="#F44336" />
 
             <TextView
                 android:id="@+id/tv_title"
@@ -34,7 +34,7 @@
                 android:text="THÊM NHÂN VIÊN MỚI"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:textColor="#F44336"
                 android:gravity="center" />
 
             <View
@@ -78,29 +78,29 @@
                         app:tint="#2196F3" />
                 </FrameLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:orientation="horizontal">
+                    <EditText
                         android:id="@+id/et_ma_nv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Mã nhân viên" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:orientation="horizontal">
+                    <EditText
                         android:id="@+id/et_ho_ten"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Họ và tên" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -108,20 +108,20 @@
                     android:orientation="horizontal"
                     android:layout_marginBottom="12dp">
 
-                    <com.google.android.material.textfield.TextInputLayout
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_marginEnd="8dp"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                        <com.google.android.material.textfield.TextInputEditText
+                        android:orientation="horizontal">
+                        <EditText
                             android:id="@+id/et_ngay_sinh"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="Ngày sinh (yyyy-mm-dd)"
                             android:focusable="false"
                             android:clickable="true" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
 
                     <Spinner
                         android:id="@+id/sp_gioi_tinh"
@@ -131,32 +131,32 @@
                         android:entries="@array/gioi_tinh_array" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:orientation="horizontal">
+                    <EditText
                         android:id="@+id/et_sdt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Số điện thoại"
                         android:inputType="phone"
                         android:maxLength="10" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-                    <com.google.android.material.textfield.TextInputEditText
+                    android:orientation="horizontal">
+                    <EditText
                         android:id="@+id/et_email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Email"
                         android:inputType="textEmailAddress" />
-                </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -188,8 +188,8 @@
                     android:text="LƯU THÔNG TIN"
                     android:textSize="16sp"
                     android:textStyle="bold"
-                    android:backgroundTint="#2196F3"
-                    android:textColor="@android:color/white" />
+                    android:background="@drawable/btn_primary"
+                    android:textColor="@android:color/black" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

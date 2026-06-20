@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
@@ -24,7 +25,7 @@
                 android:layout_height="40dp"
                 android:src="@android:drawable/ic_menu_revert"
                 android:background="?attr/selectableItemBackgroundBorderless"
-                android:tint="#2196F3" />
+                app:tint="#F44336" />
 
             <TextView
                 android:layout_width="0dp"
@@ -33,7 +34,7 @@
                 android:text="ĐĂNG KÝ TÀI KHOẢN NHÂN VIÊN"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:textColor="#2196F3"
+                android:textColor="#F44336"
                 android:gravity="center" />
 
             <View
@@ -62,10 +63,11 @@
             android:layout_marginBottom="16dp" />
 
         <!-- Mã nhân viên -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_ma_nhan_vien"
@@ -74,13 +76,14 @@
                 android:hint="Mã nhân viên (VD: NV001)"
                 android:inputType="text"
                 android:maxLength="10" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Họ tên -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_ho_ten"
@@ -88,22 +91,24 @@
                 android:layout_height="wrap_content"
                 android:hint="Họ và tên"
                 android:inputType="textPersonName" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Ngày sinh -->
-        <com.google.android.material.textfield.TextInputLayout
+        <EditText
+            android:id="@+id/et_ngay_sinh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Ngày sinh (yyyy-mm-dd)" />
 
-            <EditText
-                android:id="@+id/et_ngay_sinh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Ngày sinh (yyyy-mm-dd)"
-                android:focusable="false"
-                android:clickable="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
 
         <!-- Giới tính -->
         <TextView
@@ -136,10 +141,11 @@
         </RadioGroup>
 
         <!-- Số điện thoại -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_so_dien_thoai"
@@ -147,13 +153,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Số điện thoại"
                 android:inputType="phone" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Email -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_email"
@@ -161,30 +168,32 @@
                 android:layout_height="wrap_content"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Ngày vào làm -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_ngay_vao_lam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ngày vào làm (yyyy-mm-dd)"
+                android:clickable="true"
                 android:focusable="false"
-                android:clickable="true" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Ngày vào làm (yyyy-mm-dd)" />
+        </LinearLayout>
 
         <!-- Phòng ban -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Phòng ban:"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:textSize="14sp"/>
+
 
         <Spinner
             android:id="@+id/sp_phong_ban"
@@ -194,17 +203,17 @@
             android:background="@android:drawable/btn_dropdown" />
 
         <!-- Chức vụ mặc định -->
+
+        <!-- Thông tin tài khoản -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Chức vụ: Nhân viên (mặc định)"
-            android:textSize="14sp"
-            android:textColor="#666"
+            android:layout_marginBottom="24dp"
             android:background="@android:color/white"
             android:padding="12dp"
-            android:layout_marginBottom="24dp" />
-
-        <!-- Thông tin tài khoản -->
+            android:text="Chức vụ: Nhân viên (mặc định)"
+            android:textColor="#666"
+            android:textSize="14sp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -215,10 +224,11 @@
             android:layout_marginBottom="16dp" />
 
         <!-- Tên đăng nhập -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_ten_dang_nhap"
@@ -226,13 +236,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Tên đăng nhập"
                 android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Mật khẩu -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp">
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_mat_khau"
@@ -240,13 +251,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Mật khẩu (tối thiểu 6 ký tự)"
                 android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Xác nhận mật khẩu -->
-        <com.google.android.material.textfield.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            android:orientation="horizontal">
 
             <EditText
                 android:id="@+id/et_xac_nhan_mat_khau"
@@ -254,7 +266,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Xác nhận mật khẩu"
                 android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <!-- Buttons -->
         <LinearLayout
@@ -279,8 +291,8 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ĐĂNG KÝ"
-                android:textColor="@android:color/white"
-                android:background="#2196F3"
+                android:textColor="@android:color/black"
+                android:background="@drawable/btn_primary"
                 android:layout_marginStart="8dp" />
         </LinearLayout>
 
