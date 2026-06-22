@@ -74,7 +74,7 @@
                     android:layout_height="28dp"
                     android:layout_gravity="bottom|end"
                     android:src="@android:drawable/ic_menu_camera"
-                    app:tint="#03A9F4" />
+                    app:tint="#000000" />
             </FrameLayout>
 
             <TextView
