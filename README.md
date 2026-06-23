@@ -12,6 +12,7 @@
 - Quản lý nhân viên
 - Quản lý phòng ban
 - Quản lý chức vụ
+- Quản lý hợp đồng
 - Chấm công
 - Tính lương
 
