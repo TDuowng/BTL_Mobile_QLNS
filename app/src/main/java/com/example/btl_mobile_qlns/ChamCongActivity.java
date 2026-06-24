@@ -77,6 +77,7 @@ public class ChamCongActivity extends AppCompatActivity {
         if (currentUsername != null) {
             maNhanVien = dbHelper.getMaNhanVienByUsername(currentUsername);
         }
+
     }
     
     private void setupFormats() {
