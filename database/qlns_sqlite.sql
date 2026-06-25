@@ -1,5 +1,4 @@
 -- SQL Script for HRM System (BTL_Mobile_QLNS)
--- Author: Nguyễn Duy Thuấn & Đào Duy Huy
 
 PRAGMA foreign_keys = ON;
 
