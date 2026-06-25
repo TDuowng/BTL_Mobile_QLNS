@@ -1,5 +1,7 @@
 package com.example.btl_mobile_qlns;
 
+import static android.content.Intent.getIntent;
+
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;

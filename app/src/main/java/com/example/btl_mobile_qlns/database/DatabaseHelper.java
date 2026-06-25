@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class DatabaseHelper extends SQLiteOpenHelper {
     
     private static final String DATABASE_NAME = "qlns.db";
-    private static final int DATABASE_VERSION = 18;
+    private static final int DATABASE_VERSION = 19;
     
     public static final String TABLE_CHUC_VU = "ChucVu";
     public static final String TABLE_PHONG_BAN = "PhongBan";
@@ -116,6 +116,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         if (oldVersion < 17) {
             // Dữ liệu tháng 1, 2, 3 và tháng 4 đến ngày 17
+            db.execSQL("DELETE FROM " + TABLE_CHAM_CONG);
+            db.execSQL("DELETE FROM " + TABLE_LUONG);
+            insertSampleAttendance(db);
+        }
+        if (oldVersion < 19) {
+            // Cập nhật dữ liệu chấm công cho tháng 5 và tháng 6
             db.execSQL("DELETE FROM " + TABLE_CHAM_CONG);
             db.execSQL("DELETE FROM " + TABLE_LUONG);
             insertSampleAttendance(db);
@@ -326,24 +332,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.insert(TABLE_NGHI_PHEP, null, np);
         }
     }
-    
+
     private void insertSampleAttendance(SQLiteDatabase db) {
 
-
-        // Dữ liệu tháng 1, 2, 3 và tháng 4 đến ngày 17
+        // Dữ liệu tháng 1 đến tháng 5 đầy đủ, tháng 6 đến ngày 25
         String[] employees = {"NV002", "NV003", "NV004", "NV005", "NV006", "NV007", "NV008", "NV009", "NV010", "NV011"};
         String[] startTimes = {"08:00:00", "08:15:00", "08:30:00", "08:00:00", "08:10:00", "08:00:00", "08:15:00", "08:30:00", "08:00:00", "08:10:00"};
         String[] endTimes = {"17:00:00", "17:15:00", "17:30:00", "16:45:00", "17:20:00", "17:00:00", "17:15:00", "17:30:00", "16:45:00", "17:20:00"};
         double[] baseHours = {8.0, 8.0, 8.0, 7.75, 8.17, 8.0, 8.0, 8.0, 7.75, 8.17};
         double[] variations = {0.0, 0.5, 1.0, 0.0, 0.5, 0.0, 1.5, 0.0, 0.5, 0.0, 1.0, 0.0, 0.5, 0.0, 1.0, 0.0, 0.5, 0.0, 1.5, 0.0};
 
-        int[] months = {1, 2, 3, 4};
+        int[] months = {1, 2, 3, 4, 5, 6};   // <-- thêm 5 và 6
 
         for (int m = 0; m < months.length; m++) {
             int month = months[m];
             int daysInMonth = 31;
             if (month == 2) daysInMonth = 28;
-            if (month == 4) daysInMonth = 17; // Chỉ đến ngày 17 của tháng 4
+            if (month == 4) daysInMonth = 30;
+            if (month == 6) daysInMonth = 25;   // <-- tháng 6 chỉ đến ngày 25
 
             int varIndex = 0;
             for (int day = 1; day <= daysInMonth; day++) {
@@ -380,7 +386,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
     }
-    
     private String getRandomAbsentReason() {
         String[] reasons = {
             "Nghỉ ốm",

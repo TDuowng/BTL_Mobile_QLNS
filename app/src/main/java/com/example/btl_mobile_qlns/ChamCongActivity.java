@@ -28,7 +28,6 @@ public class ChamCongActivity extends AppCompatActivity {
     private ListView lvLichSuChamCong;
     private Spinner spNhanVien;
     private View layoutChamCongCaNhan, layoutQuanLyChamCong;
-    
     private DatabaseHelper dbHelper;
     private String currentUsername;
     private String maNhanVien;
@@ -53,7 +52,7 @@ public class ChamCongActivity extends AppCompatActivity {
         loadAttendanceHistory();
         setupButtons();
     }
-    
+    // blind view
     private void initViews() {
         tvTitle = findViewById(R.id.tv_title);
         tvCurrentTime = findViewById(R.id.tv_current_time);
@@ -68,7 +67,7 @@ public class ChamCongActivity extends AppCompatActivity {
 
         findViewById(R.id.btn_back).setOnClickListener(v -> finish());
     }
-    
+    // lấy username, role, mã nhân viên từ Intent
     private void setupDatabase() {
         dbHelper = new DatabaseHelper(this);
         currentUsername = getIntent().getStringExtra("username");
@@ -79,7 +78,8 @@ public class ChamCongActivity extends AppCompatActivity {
         }
 
     }
-    
+
+    //định dạng giờ/ngày
     private void setupFormats() {
         timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
         dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());

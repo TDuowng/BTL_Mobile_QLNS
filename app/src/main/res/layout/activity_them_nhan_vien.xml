@@ -87,7 +87,8 @@
                         android:id="@+id/et_ma_nv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Mã nhân viên" />
+                        android:hint="Mã nhân viên"
+                        android:inputType="text" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -99,7 +100,8 @@
                         android:id="@+id/et_ho_ten"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Họ và tên" />
+                        android:hint="Họ và tên"
+                        android:inputType="textPersonName"/>
                 </LinearLayout>
 
                 <LinearLayout

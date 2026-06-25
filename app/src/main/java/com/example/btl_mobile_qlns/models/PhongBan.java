@@ -8,8 +8,6 @@ public class PhongBan {
     private int soNhanVien;
     private String tenTruongPhong;
 
-    public PhongBan() {
-    }
 
     public PhongBan(String maPhongBan, String tenPhongBan, String truongPhong, int trangThai) {
         this.maPhongBan = maPhongBan;

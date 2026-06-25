@@ -32,15 +32,7 @@ public class ChamCongAdapter extends BaseAdapter {
         this.currentRole = currentRole;
         this.dbHelper = new DatabaseHelper(context);
     }
-    
-    // Constructor cũ để tương thích
-    public ChamCongAdapter(Context context, List<ChamCong> listChamCong) {
-        this.context = context;
-        this.listChamCong = listChamCong;
-        this.currentRole = "Employee";
-        this.dbHelper = new DatabaseHelper(context);
-    }
-    
+
     @Override
     public int getCount() {
         return listChamCong != null ? listChamCong.size() : 0;
